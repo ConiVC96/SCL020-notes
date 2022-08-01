@@ -1,24 +1,64 @@
-import { useState } from "react"
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/authContext";
 
 export function Login() {
   const [user, setUser] = useState({
     email: "",
-    password: ""
-  })
-  
-  return <div>
+    password: "",
+  });
+  const { login, loginWithGoogle } = useAuth();
+  const navigate = useNavigate();
+  const [error, setError] = useState();
 
-    <form>
+  const handleChange = ({ target: { name, value } }) =>
+    setUser({ ...user, [name]: value });
 
-    <input type="email" name="email" id="email" />
-    <input type="password" name="password" id="password" />
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await login(user.email, user.password);
+      navigate("/show");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
+  const handleGoogleSignin = async () => {
+    try {
+      await loginWithGoogle();
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
+  return (
+    <div>
+      {error && <p>{error}</p>}
 
-    </form>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="youremail@mail.com"
+          onChange={handleChange}
+        />
 
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="******"
+          onChange={handleChange}
+        />
 
-  </div>
+        <button>Login</button>
+      </form>
 
+      <button onClick={handleGoogleSignin}>Google Login</button>
+    </div>
+  );
 }
