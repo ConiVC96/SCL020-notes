@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { collection, addDoc } from 'firebase/firestore'
-import { db } from '../firebaseConfig'
+import { db } from '../../firebaseConfig'
 
-const Create = () => {
+export const Create = () => {
     const [ title, setTitle ] = useState('')
     const [ description, setDescription ] = useState('')
   const navigate = useNavigate()
@@ -52,4 +52,3 @@ const Create = () => {
   )
 }
 
-export default Create

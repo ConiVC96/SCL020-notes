@@ -1,36 +1,39 @@
 import { Routes, Route } from "react-router-dom";
-import { Home } from "./components/Home";
-import { Login } from "./components/Login";
-import { ProtectedRoute } from "./components/ProtectedRoute";
-import { Register } from "./components/Register";
-import Show from "./components/Show";
-import Create from "./components/Create";
-import Edit from "./components/Edit";
 import { AuthProvider } from "./context/authContext";
+import {Home} from "./components/views/Home";
+import {Login} from "./components/views/Login";
+import {Register} from "./components/views/Register";
+import {ProtectedRoute} from "./components/views/ProtectedRoute";
+import {Show} from "./components/views/Show";
+import {Create} from "./components/views/Create";
+import {Edit} from "./components/views/Edit"
 
-
-function App() {
+ 
+export function App() {
   return (
     <AuthProvider>
       <Routes>
-        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route
-          path="/show"
-          element={<Show />}
-        />
+        <Route path="/show" element={<Show />} />
         <Route
           path="/create"
-          element={<ProtectedRoute><Create /></ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <Create />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/edit/:id"
-          element={<ProtectedRoute><Edit /></ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <Edit />
+            </ProtectedRoute>
+          }
         />
       </Routes>
     </AuthProvider>
   );
 }
-
-export default App;

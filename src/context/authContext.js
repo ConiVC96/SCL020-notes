@@ -17,36 +17,35 @@ export const useAuth = () => {
 };
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  const signup = (email, password) =>
+ const signUp = async (email, password) =>
     createUserWithEmailAndPassword(auth, email, password);
 
   const login = async (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
 
-  const logout = () => signOut(auth);
+    const loginWithGoogle = () => {
+      const googleProvider = new GoogleAuthProvider();
+      return signInWithPopup(auth, googleProvider);
+    };
 
-  const loginWithGoogle = () => {
-    const googleProvider = new GoogleAuthProvider();
-    return signInWithPopup(auth, googleProvider);
-  };
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  return (
-    <authContext.Provider
-      value={{ signup, login, user, logout, loading, loginWithGoogle }}
-    >
-      {children}
-    </authContext.Provider>
-  );
-}
+    const logOut = async () => {
+      await signOut(auth)
+      console.log('Cerró Sesión')
+      localStorage.removeItem('currentUser')
+      //elimina data del almacenamiento local (el usuario actual)
+    }
+  
+    useEffect(() => {
+      onAuthStateChanged(auth, currentUser => {
+        localStorage.setItem('currentUser', JSON.stringify(currentUser))
+        //localStorage guarda la info por tiempo indefinido aunque se cierre el navegador
+        //setItem necesita la key y el valor
+      })
+    }, [])
+  
+    return (
+      <authContext.Provider value={{ signUp, login, loginWithGoogle, logOut }}>
+        {children}
+      </authContext.Provider>
+    )
+  }

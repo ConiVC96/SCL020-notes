@@ -1,25 +1,33 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/authContext";
+import { useAuth } from "../../context/authContext";
 
-export function Register() {
+export function Login() {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-  const { signup } = useAuth();
+  const { login, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState();
 
-  const handleChange = ({ target: { name, value } }) =>
-    setUser({ ...user, [name]: value });
+  const handleChange = ({ target: { name, value } }) => setUser({ ...user, [name]: value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
-      await signup(user.email, user.password);
-      navigate("/");
+      await login(user.email, user.password);
+      navigate("/show");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  const handleGoogleSignin = async () => {
+    try {
+      await loginWithGoogle();
+      navigate("/show");
     } catch (error) {
       setError(error.message);
     }
@@ -46,8 +54,10 @@ export function Register() {
           onChange={handleChange}
         />
 
-        <button>Register</button>
+        <button>Login</button>
       </form>
+
+      <button onClick={handleGoogleSignin}>Google Login</button>
     </div>
   );
 }

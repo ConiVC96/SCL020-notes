@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import {collection, getDocs, getDoc, deleteDoc, doc} from 'firebase/firestore'
-import { db } from '../firebaseConfig'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import {collection, getDocs, deleteDoc, doc} from 'firebase/firestore';
+import { db } from '../../firebaseConfig';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal)
 
-const Show = () => {
+export const Show = () => {
   //1 - configuramos los hooks
   const [notes, setNotes] = useState( [] )
 
@@ -93,5 +93,4 @@ const Show = () => {
   )
 }
 
-export default Show
   

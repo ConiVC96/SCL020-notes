@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getDoc, updateDoc, doc } from "firebase/firestore"
-import { db } from "../firebaseConfig"
+import { db } from "../../firebaseConfig";
 
-const Edit = () => {
+export const Edit = () => {
     const [ title, setTitle ] = useState('')
     const [ description, setDescription ] = useState('')
    
@@ -72,6 +72,4 @@ const Edit = () => {
     </div> 
     )
 }
-
-export default Edit
 

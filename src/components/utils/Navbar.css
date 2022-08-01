@@ -1,0 +1,21 @@
+#btnLogin{
+    color: black;
+    border-color:brown;
+    background-color: brown;
+    letter-spacing: 0.150em;
+    box-shadow: 10px 5px 5px black;
+
+}
+#btnRegister{
+    color: black;
+    border-color:brown;
+    background-color: brown;
+    letter-spacing: 0.150em;
+    box-shadow: 10px 5px 5px black;
+}
+.format{
+    margin: 20px 20px auto auto ;
+    background-color: #EFF2FF;
+}
+
+
