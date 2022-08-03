@@ -9,7 +9,7 @@ import {Create} from "./components/views/Create";
 import {Edit} from "./components/views/Edit"
 
  
-export function App() {
+function App() {
   return (
     <AuthProvider>
       <Routes>
@@ -37,3 +37,5 @@ export function App() {
     </AuthProvider>
   );
 }
+
+export default App;

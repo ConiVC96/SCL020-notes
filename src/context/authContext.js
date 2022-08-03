@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -9,14 +9,14 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 
-export const authContext = createContext();
+const authContext = createContext();
 
-export const useAuth = () => {
+const useAuth = () => {
   const context = useContext(authContext);
   return context;
 };
 
-export function AuthProvider({ children }) {
+function AuthProvider({ children }) {
  const signUp = async (email, password) =>
     createUserWithEmailAndPassword(auth, email, password);
 
@@ -40,6 +40,11 @@ export function AuthProvider({ children }) {
         localStorage.setItem('currentUser', JSON.stringify(currentUser))
         //localStorage guarda la info por tiempo indefinido aunque se cierre el navegador
         //setItem necesita la key y el valor
+        //localStorage guarda la info por tiempo indefinido aunque se cierre el navegador
+      //setItem necesita la key y el valor
+      //localStorage es una variable global, estoy creando este item que se llamará currentuser y el currentuser que me devuelve auth esta minificado por lo que debo 
+      // usar el JSON.stringify para que lo devuelva como string para que me permita guardarlo en localStorage
+      //luego que la página se cargue ejecuta esta función
       })
     }, [])
   
@@ -49,3 +54,4 @@ export function AuthProvider({ children }) {
       </authContext.Provider>
     )
   }
+  export { AuthProvider, useAuth, authContext}

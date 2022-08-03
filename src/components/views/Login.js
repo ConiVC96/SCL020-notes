@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
+import NavBtnBack from "../utils/NavBtnBack";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import "./Login.css";
+import { Link } from "react-router-dom";
 
 export function Login() {
   const [user, setUser] = useState({
@@ -9,9 +14,10 @@ export function Login() {
   });
   const { login, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
 
-  const handleChange = ({ target: { name, value } }) => setUser({ ...user, [name]: value });
+  const handleChange = ({ target: { name, value } }) =>
+    setUser({ ...user, [name]: value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +30,8 @@ export function Login() {
     }
   };
 
-  const handleGoogleSignin = async () => {
+  const handleGoogleSignin = async (e) => {
+    e.preventDefault();
     try {
       await loginWithGoogle();
       navigate("/show");
@@ -34,30 +41,51 @@ export function Login() {
   };
 
   return (
-    <div>
+    <>
+      <NavBtnBack path="/" />
+
       {error && <p>{error}</p>}
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="youremail@mail.com"
-          onChange={handleChange}
-        />
+      <Form className="form" onSubmit={handleSubmit}>
+        <div className="containerInput">
+          <label htmlFor="email">Ingrese su Correo</label>
 
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          placeholder="******"
-          onChange={handleChange}
-        />
+          <Form.Control
+            className="formInputs"
+            type="email"
+            name="email"
+            placeholder="youremail@mail.com"
+            onChange={handleChange}
+          />
 
-        <button>Login</button>
-      </form>
-
-      <button onClick={handleGoogleSignin}>Google Login</button>
-    </div>
+          <label htmlFor="password">Contraseña</label>
+          <Form.Control
+            className="formInputs"
+            type="password"
+            name="password"
+            placeholder="******"
+            onChange={handleChange}
+          />
+        </div>
+        <Button variant="outline-info" id="btnLogin" type="submit">
+          Iniciar Sesión
+        </Button>
+        <Button
+          variant="outline-info"
+          id="btnGoogle"
+          type="submit"
+          onClick={handleGoogleSignin}
+        >
+          <i class="fa-brands fa-google"></i>
+          Iniciar sesión con Google
+        </Button>
+        <label htmlFor="email">¿Todavía no tiene cuenta?</label>
+        <Link to="/register">
+          <Button variant="outline-info" id="btnRegister" type="submit">
+            Crea tu cuenta
+          </Button>
+        </Link>
+      </Form>
+    </>
   );
 }

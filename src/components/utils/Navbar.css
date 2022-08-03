@@ -2,20 +2,22 @@
     color: black;
     border-color:brown;
     background-color: brown;
-    letter-spacing: 0.150em;
+    letter-spacing: 0.100em;
     box-shadow: 10px 5px 5px black;
+    font-weight: bold;
 
 }
-#btnRegister{
+#createAccount{
     color: black;
     border-color:brown;
     background-color: brown;
-    letter-spacing: 0.150em;
     box-shadow: 10px 5px 5px black;
+    letter-spacing: 0.100em;
+    font-weight: bold;
 }
+
+
 .format{
     margin: 20px 20px auto auto ;
     background-color: #EFF2FF;
 }
-
-

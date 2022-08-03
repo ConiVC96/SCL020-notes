@@ -1,0 +1,53 @@
+label{
+    font-weight: bold;
+}
+.form{
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 40px;
+    letter-spacing: 0.100em;
+}
+.containerInput{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+   
+}
+.formInputs{
+    align-items: center;
+    background-color: white;
+    box-shadow: 10px 5px 5px black;
+    border-radius: 6px;
+    border-style: inset;
+    
+}
+
+#btnLogin{
+    font-weight: bold;
+    color: black;
+    border-color:brown;
+    background-color: brown;
+    box-shadow: 10px 5px 5px black;
+    letter-spacing: 0.100em;
+    
+}
+#btnGoogle{
+    font-weight: bold;
+    color: white;
+    border-color:brown;
+    background-color: brown;
+    box-shadow: 10px 5px 5px black;
+    letter-spacing: 0.100em;
+    
+
+}
+ #btnRegister{
+    box-shadow: 10px 5px 5px black;
+    background-color:brown;
+    color: black;
+    letter-spacing: 0.150em;  
+    font-weight: bold; 
+}
