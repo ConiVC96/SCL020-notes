@@ -1,53 +1,51 @@
-label{
-    font-weight: bold;
-}
-.form{
 
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    gap: 40px;
-    letter-spacing: 0.100em;
+.labLogin {
+  background-color: antiquewhite;
+  border-radius: 20px;
 }
-.containerInput{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-   
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 40px;
+  letter-spacing: 0.1em;
 }
-.formInputs{
-    align-items: center;
-    background-color: white;
-    box-shadow: 10px 5px 5px black;
-    border-radius: 6px;
-    border-style: inset;
-    
+.section {
+  display: flex;
+  flex-direction: column;
+  background: whitesmoke;
+  margin-top: 10%;
+  padding: 3%;
+  width: 50%;
+  gap: 15px;
+  border-radius: 20px;
 }
-
-#btnLogin{
-    font-weight: bold;
-    color: black;
-    border-color:brown;
-    background-color: brown;
-    box-shadow: 10px 5px 5px black;
-    letter-spacing: 0.100em;
-    
+.containerInput {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
-#btnGoogle{
-    font-weight: bold;
-    color: white;
-    border-color:brown;
-    background-color: brown;
-    box-shadow: 10px 5px 5px black;
-    letter-spacing: 0.100em;
-    
-
+.formInputs {
+  align-items: center;
+  background-color: white;
+  box-shadow: 10px 5px 5px grey;
+  border-radius: 6px;
+  border-style: inset;
 }
- #btnRegister{
-    box-shadow: 10px 5px 5px black;
-    background-color:brown;
-    color: black;
-    letter-spacing: 0.150em;  
-    font-weight: bold; 
+.fa-google {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 300;
+  display: flex;
+  justify-content: space-evenly;
+}
+#btnLogin,
+#btnGoogle,
+#btnRegister {
+  color: black;
+  border-color: brown;
+  background-color: brown;
+  box-shadow: 10px 5px 5px grey;
+  letter-spacing: 0.1em;
+  font-weight: bold;
 }

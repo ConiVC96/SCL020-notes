@@ -1,8 +1,46 @@
-#btnRegister{
-  font-weight: bold;
+
+.labRegister {
+  background-color: antiquewhite;
+  border-radius: 20px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 40px;
+  letter-spacing: 0.1em;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  background: whitesmoke;
+  margin-top: 10%;
+  padding: 3%;
+  width: 50%;
+  gap: 15px;
+  border-radius: 20px;
+}
+.containerInput {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.formInputs {
+  align-items: center;
+  background-color: white;
+  box-shadow: 10px 5px 5px grey;
+  border-radius: 6px;
+  border-style: inset;
+}
+
+#btnLogin,
+#btnGoogle,
+#btnRegister {
   color: black;
-  border-color:brown;
+  border-color: brown;
   background-color: brown;
-  box-shadow: 10px 5px 5px black;
-  letter-spacing: 0.100em;
+  box-shadow: 10px 5px 5px grey;
+  letter-spacing: 0.1em;
+  font-weight: bold;
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getDoc, updateDoc, doc } from "firebase/firestore"
 import { db } from "../../firebaseConfig";
+import "./Edit.css"
 
 export const Edit = () => {
     const [ title, setTitle ] = useState('')

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import './Register.css'
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import "./Register.css";
+import NavBtnBack from "../utils/NavBtnBack";
+import { Link } from "react-router-dom";
 
 export function Register() {
   const [user, setUser] = useState({
@@ -14,7 +16,8 @@ export function Register() {
   const navigate = useNavigate();
   const [error, setError] = useState();
 
-  const handleChange = ({ target: { name, value } }) => setUser({ ...user, [name]: value });
+  const handleChange = ({ target: { name, value } }) =>
+    setUser({ ...user, [name]: value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,30 +31,51 @@ export function Register() {
   };
 
   return (
-    <div>
-    {error && <p>{error}</p>}
-    <div className="registerForm">
-      <Form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="youremail@mail.com"
-          onChange={handleChange}
-        />
+    <>
+      <NavBtnBack path="/" />
 
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          placeholder="******"
-          onChange={handleChange}
-        />
+      {error && <p>{error}</p>}
 
-        <Button variant="outline-info" type="submit" id='btnRegister'>Registrarse</Button>
+      <Form className="form" onSubmit={handleSubmit}>
+        <div className="section">
+          <h2>Crea tu cuenta</h2>
+          <div className="containerInput">
+            <label className="labRegister" htmlFor="email">
+              Registre su Correo
+            </label>
+
+            <Form.Control
+              className="formInputs"
+              type="email"
+              name="email"
+              placeholder="youremail@mail.com"
+              onChange={handleChange}
+            />
+
+            <label className="labRegister" htmlFor="password">
+              Crea tu contraseña
+            </label>
+            <Form.Control
+              className="formInputs"
+              type="password"
+              name="password"
+              placeholder="******"
+              onChange={handleChange}
+            />
+          </div>
+          <Button variant="outline-info" id="btnLogin" type="submit">
+            Crear cuenta
+          </Button>
+
+          <label htmlFor="email">¿Ya tienes una cuenta?</label>
+          <Link to="/login">
+            <Button variant="outline-info" id="btnLogin" type="submit">
+              Ingresa sesión
+            </Button>
+          </Link>
+        </div>
       </Form>
-    </div>
-    </div>
+    </>
   );
 }
 export default Register;

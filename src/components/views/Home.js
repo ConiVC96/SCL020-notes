@@ -11,9 +11,10 @@ export const Home = () => {
       <NavLinks />
       <section>
         <div className="content">
-          <img src={notes} alt='first'/>
-            <h3>Crea tus Notas</h3>
-            <p > AppNotes es la aplicación web que estabas buscando, puedes plasmar tus ideas, escribir tu lista de compras, escribir tus apuntes, ¡y mucho más!.</p>
+          
+            <h2 className="stella">StellaNotes</h2>
+            <img src={notes} alt='first'/>
+            <p > StellaNotes es la aplicación web que estabas buscando, puedes plasmar tus ideas, escribir tu lista de compras, tus apuntes, ¡y mucho más!.</p>
         </div>
         <div>
           <img src={woman} className= 'woman'alt='secondW'/>

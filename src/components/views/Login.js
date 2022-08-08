@@ -47,44 +47,51 @@ export function Login() {
       {error && <p>{error}</p>}
 
       <Form className="form" onSubmit={handleSubmit}>
-        <div className="containerInput">
-          <label htmlFor="email">Ingrese su Correo</label>
+        <div className="section">
+          <h2>Ingresa a StellaNotes</h2>
+          <div className="containerInput">
+            <label className="labLogin" htmlFor="email">
+              Ingrese su Correo
+            </label>
 
-          <Form.Control
-            className="formInputs"
-            type="email"
-            name="email"
-            placeholder="youremail@mail.com"
-            onChange={handleChange}
-          />
+            <Form.Control
+              className="formInputs"
+              type="email"
+              name="email"
+              placeholder="youremail@mail.com"
+              onChange={handleChange}
+            />
 
-          <label htmlFor="password">Contraseña</label>
-          <Form.Control
-            className="formInputs"
-            type="password"
-            name="password"
-            placeholder="******"
-            onChange={handleChange}
-          />
-        </div>
-        <Button variant="outline-info" id="btnLogin" type="submit">
-          Iniciar Sesión
-        </Button>
-        <Button
-          variant="outline-info"
-          id="btnGoogle"
-          type="submit"
-          onClick={handleGoogleSignin}
-        >
-          <i class="fa-brands fa-google"></i>
-          Iniciar sesión con Google
-        </Button>
-        <label htmlFor="email">¿Todavía no tiene cuenta?</label>
-        <Link to="/register">
-          <Button variant="outline-info" id="btnRegister" type="submit">
-            Crea tu cuenta
+            <label className="labLogin" htmlFor="password">
+              Contraseña
+            </label>
+            <Form.Control
+              className="formInputs"
+              type="password"
+              name="password"
+              placeholder="******"
+              onChange={handleChange}
+            />
+          </div>
+          <Button variant="outline-info" id="btnLogin" type="submit">
+            Iniciar Sesión
           </Button>
-        </Link>
+          <Button
+            variant="outline-info"
+            id="btnGoogle"
+            type="submit"
+            onClick={handleGoogleSignin}
+          >
+            <i className="fa-brands fa-google">Ingresa con Google</i>
+          </Button>
+
+          <label htmlFor="email">¿Todavía no tiene cuenta?</label>
+          <Link to="/register">
+            <Button variant="info" id="btnRegister" type="submit">
+              Crea tu cuenta aquí
+            </Button>
+          </Link>
+        </div>
       </Form>
     </>
   );

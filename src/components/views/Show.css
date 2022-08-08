@@ -1,4 +1,33 @@
-* { margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
+
+.card-title{
+    font-weight: bold;
+    border: 2px solid brown;
+    border-radius: 4px;
+    background: brown;
+    text-align: center;
+}
+.card{
+    
+    margin-top: 3rem;
+    background: beige;
+   max-width: 18rem;
+   box-shadow: 1px 1px 1px 1px grey;
+   
+}
+.card-text{
+    
+    text-align: center;
+}
+    
+
+.card-group{
+    gap: 15px;
+    justify-content: center;
+}
+
+#btnCreate{
+    display: flex;
+    justify-content: flex-end;
+    padding: 1%;
+    
 }
