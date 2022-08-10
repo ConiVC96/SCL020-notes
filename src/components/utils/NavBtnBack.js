@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 
 const NavBtnBack = (props) => {
   return (
-    <div>
+    <>
       <Nav.Link href={props.path}>
         {props.path === "/" ? (
           <Button variant="info" id="createAccount">
@@ -19,7 +19,7 @@ const NavBtnBack = (props) => {
           </Button>
         )}
       </Nav.Link>
-    </div>
+    </>
   );
 };
 

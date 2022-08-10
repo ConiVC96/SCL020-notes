@@ -2,7 +2,9 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getDoc, updateDoc, doc } from "firebase/firestore"
 import { db } from "../../firebaseConfig";
-import "./Edit.css"
+import NavBtnBack from "../utils/NavBtnBack";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/esm/Button";
 
 export const Edit = () => {
     const [ title, setTitle ] = useState('')
@@ -41,36 +43,35 @@ export const Edit = () => {
     }, [])
 
     return (
-        <div className='container'>
-        <div className='row'>
-            <div className='col'>
-                <h1>Edit Note</h1>
-                 <form onSubmit={update}>
-                    <div className='mb-3'>
-                        <label className='form-label'>Title</label>
-                        <input
-                            value={title}
-                            onChange={ (e) => setTitle(e.target.value)} 
-                            type="text"
-                            className='form-control'
-                        />
-                    </div>
-
-                    <div className='mb-3'>
-                        <label className='form-label'>Description</label>
-                        <input
-                            value={description}
-                            onChange={ (e) => setDescription(e.target.value)} 
-                            type="text"
-                            className='form-control'
-                        />
-                    </div>  
- 
-                    <button type='submit' className='btn btn-primary'>Update</button>
-                 </form>   
-            </div>
-        </div>
-    </div> 
-    )
-}
-
+        <>
+          <NavBtnBack id="btnNav1" path='/show'/>
+          <h1 id="titlesCreate">¡Edita tu nota!</h1>
+          <section>
+              <Form onSubmit={update}>
+                <div className="mb-3">
+                  <h4 id="titlesCreate">Título</h4>
+                  <Form.Control
+                    required value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    type="text"
+                   
+                  />
+                </div>
+    
+                <div className="mb-3">
+                  <h4>Descripción de la nota</h4>
+                  <Form.Control id="descriptionBlock"
+                    required value={description} as="textarea"
+                    onChange={(e) => setDescription(e.target.value)}
+                    type="text"
+                  
+                  />
+                </div>
+                <Button variant="info" id="btnRegister" type="submit">
+                Guardar nota
+                </Button>
+              </Form>
+              </section>
+        </>
+      );
+    };

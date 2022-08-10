@@ -35,7 +35,7 @@ export const Create = () => {
             <div className="mb-3">
               <h4 id="titlesCreate">Título</h4>
               <Form.Control
-                required value={title}
+                required value={title} 
                 onChange={(e) => setTitle(e.target.value)}
                 type="text"
                
@@ -45,7 +45,7 @@ export const Create = () => {
             <div className="mb-3">
               <h4>Descripción de la nota</h4>
               <Form.Control id="descriptionBlock"
-                required value={description}
+                required value={description} as="textarea"
                 onChange={(e) => setDescription(e.target.value)}
                 type="text"
               

@@ -7,13 +7,14 @@ import Button from "react-bootstrap/Button";
 import "./Login.css";
 import { Link } from "react-router-dom";
 
-export function Login() {
+export const Login = () => {
+  //devuelvo un valor con estado, en este momento tiene un valor pero en otro momento puede adquirir otro
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-  const { login, loginWithGoogle } = useAuth();
-  const navigate = useNavigate();
+  const { login, loginWithGoogle } = useAuth(); //uso destructuring para traer estas funciones
+  const navigate = useNavigate(); //me permite redireccionar
   const [error, setError] = useState("");
 
   const handleChange = ({ target: { name, value } }) =>
@@ -42,10 +43,10 @@ export function Login() {
 
   return (
     <>
-      <NavBtnBack path="/" />
-
+      <div className="containerBtnBack">
+        <NavBtnBack path="/" />
+      </div>
       {error && <p>{error}</p>}
-
       <Form className="form" onSubmit={handleSubmit}>
         <div className="section">
           <h2>Ingresa a StellaNotes</h2>
@@ -95,4 +96,4 @@ export function Login() {
       </Form>
     </>
   );
-}
+};

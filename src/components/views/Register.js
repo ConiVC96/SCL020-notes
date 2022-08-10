@@ -32,8 +32,9 @@ export function Register() {
 
   return (
     <>
+    <div className="containerBtnBack">
       <NavBtnBack path="/" />
-
+      </div>
       {error && <p>{error}</p>}
 
       <Form className="form" onSubmit={handleSubmit}>

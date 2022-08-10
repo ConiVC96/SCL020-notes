@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import  {getFirestore} from "firebase/firestore"
+import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -13,7 +13,7 @@ const firebaseConfig = {
   appId: "1:826897965259:web:5fc94a216ce465dfe3bb4e",
 };
 
-// Initialize Firebase
+// Trata de conectarme o inicializar la conexión con backend
 export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+export const auth = getAuth(app); //me permite autenticar usuarios, recibe un parametro llamado app, que es un aplicación de firebase
 export const db = getFirestore(app); // conexión a la base de datos

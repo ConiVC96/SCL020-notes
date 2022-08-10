@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 import Swal from "sweetalert2";
@@ -8,11 +8,19 @@ import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
 import "./Show.css";
 import NavBtnBack from "../utils/NavBtnBack";
-
+import { useAuth } from "../../context/authContext";
+import Button from "react-bootstrap/esm/Button";
 
 const MySwal = withReactContent(Swal);
 
 export const Show = () => {
+  const navigate = useNavigate();
+  const { logOut } = useAuth();
+
+  const handleLogOut = () => {
+    logOut();
+    navigate("/");
+  };
   //1 - configuramos los hooks
   const [notes, setNotes] = useState([]);
 
@@ -59,10 +67,14 @@ export const Show = () => {
 
   return (
     <>
-    
-    <div id="btnCreate">
-      <NavBtnBack path="/create" />
-      </div>
+    <div className="containerBtnLog">
+    <NavBtnBack path="/create" />
+   <Button id="btnLogOut" onClick={handleLogOut} >Cerrar Sesión</Button>
+   </div>
+   
+        
+        
+        
       <CardGroup>
         {notes.map((note) => (
           <div key={note.id}>

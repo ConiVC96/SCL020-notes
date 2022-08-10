@@ -39,6 +39,10 @@
   display: flex;
   justify-content: space-evenly;
 }
+.containerBtnBack{
+  display: flex;
+  justify-content: flex-end;
+}
 #btnLogin,
 #btnGoogle,
 #btnRegister {
