@@ -7,11 +7,12 @@ import { ProtectedRoute } from "./components/views/ProtectedRoute";
 import { Show } from "./components/views/Show";
 import { Create } from "./components/views/Create";
 import { Edit } from "./components/views/Edit";
+import Jokes from "./components/api/Jokes";
 
+// componentes solo pueden tener un elemento padre, solo devolver 1 bloque
+    //todas mis rutas podran acceder a las propiedades de AuthProvider (children)
 function App() {
   return (
-    // componentes solo pueden tener un elemento padre, solo devolver 1 bloque
-    //todas mis rutas podran acceder a las propiedades de AuthProvider (children)
     <AuthProvider>
       <Routes>
         <Route path="/" element={<Home />} />

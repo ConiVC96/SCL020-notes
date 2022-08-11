@@ -1,5 +1,6 @@
 .card-title {
   font-weight: bold;
+  color: white;
   border: 2px solid brown;
   border-radius: 4px;
   background: brown;
@@ -24,8 +25,23 @@
   justify-content:space-between;
 }
 
+.containerChuck{
+  display: block;
+  justify-content: center;
+  
+  
+  
+}
+#btnChuck {
+  color: white;
+  border-color: brown;
+  background-color: brown;
+  box-shadow: 10px 5px 5px grey;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
 #btnLogOut {
-  color: black;
+  color: white;
   border-color: brown;
   background-color: brown;
   box-shadow: 10px 5px 5px grey;

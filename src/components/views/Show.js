@@ -10,6 +10,7 @@ import "./Show.css";
 import NavBtnBack from "../utils/NavBtnBack";
 import { useAuth } from "../../context/authContext";
 import Button from "react-bootstrap/esm/Button";
+import Jokes from "../api/Jokes"
 
 const MySwal = withReactContent(Swal);
 
@@ -67,14 +68,13 @@ export const Show = () => {
 
   return (
     <>
-    <div className="containerBtnLog">
-    <NavBtnBack path="/create" />
-   <Button id="btnLogOut" onClick={handleLogOut} >Cerrar Sesión</Button>
-   </div>
-   
-        
-        
-        
+      <div className="containerBtnLog">
+        <NavBtnBack path="/create" />
+        <Button id="btnLogOut" onClick={handleLogOut}>
+          Cerrar Sesión
+        </Button>
+      </div>
+
       <CardGroup>
         {notes.map((note) => (
           <div key={note.id}>
@@ -101,6 +101,9 @@ export const Show = () => {
           </div>
         ))}
       </CardGroup>
+      <div>
+        <Jokes></Jokes>
+      </div>
     </>
   );
 };

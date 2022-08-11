@@ -4,17 +4,21 @@ section{
     height: 85vh;
     grid-template-columns: 70vw;
     justify-content: center;
+    
 }
-section div{
+.contentHome{
+    margin-top: 8vh;;
     text-align: center;
 }
 .stella{
     color:firebrick;
     font-weight: bolder;
     margin-top: 20px;
+    
 }
 .woman {
-    max-height: 80%;
+    margin-top: 5%;
+    max-height: 90%;
 }
 @media (min-width: 1024px) {
     section {
