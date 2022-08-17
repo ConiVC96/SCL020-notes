@@ -8,13 +8,12 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 
 export const Login = () => {
-  //devuelvo un valor con estado, en este momento tiene un valor pero en otro momento puede adquirir otro
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-  const { login, loginWithGoogle } = useAuth(); //uso destructuring para traer estas funciones
-  const navigate = useNavigate(); //me permite redireccionar
+  const { login, loginWithGoogle } = useAuth();
+  const navigate = useNavigate();
   const [error, setError] = useState("");
 
   const handleChange = ({ target: { name, value } }) =>

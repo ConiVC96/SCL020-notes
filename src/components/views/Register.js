@@ -13,7 +13,9 @@ export function Register() {
     password: "",
   });
   const { signUp } = useAuth();
+
   const navigate = useNavigate();
+
   const [error, setError] = useState();
 
   const handleChange = ({ target: { name, value } }) =>
@@ -22,6 +24,7 @@ export function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
     try {
       await signUp(user.email, user.password);
       navigate("/show");
@@ -32,9 +35,10 @@ export function Register() {
 
   return (
     <>
-    <div className="containerBtnBack">
-      <NavBtnBack path="/" />
+      <div className="containerBtnBack">
+        <NavBtnBack path="/" />
       </div>
+
       {error && <p>{error}</p>}
 
       <Form className="form" onSubmit={handleSubmit}>

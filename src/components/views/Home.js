@@ -16,8 +16,6 @@ export const Home = () => {
           </p>
           <img src={woman} className="woman" alt="secondW" />
         </div>
-        
-        
       </section>
     </>
   );

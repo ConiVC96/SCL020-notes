@@ -13,7 +13,6 @@ const firebaseConfig = {
   appId: "1:826897965259:web:5fc94a216ce465dfe3bb4e",
 };
 
-// Trata de conectarme o inicializar la conexión con backend
 export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app); //me permite autenticar usuarios, recibe un parametro llamado app, que es un aplicación de firebase
-export const db = getFirestore(app); // conexión a la base de datos
+export const auth = getAuth(app);
+export const db = getFirestore(app);

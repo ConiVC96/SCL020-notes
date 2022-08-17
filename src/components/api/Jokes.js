@@ -15,15 +15,17 @@ function Jokes() {
   }, []);
 
   return (
+    <main>
     <div className="containerChuck">
       <div id="chuckText">
         <h5>{joke}</h5>
       </div>
       <Button id="btnChuck" onClick={loadJoke}>
-        {" "}
+       
         Más chistes de Chuck Norris
       </Button>
     </div>
+    </main>
   );
 }
 export default Jokes;

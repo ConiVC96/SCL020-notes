@@ -8,18 +8,23 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../firebaseConfig";
+//{firebase} extraigo las funciones de fb
+
 
 const authContext = createContext();
-//Creo variables globales
+//AuthContetext me va a devolver el context
+//Creo variables globales, accder a un valor en cualquier lado de mi aplicación
 const useAuth = () => {
   const context = useContext(authContext);
   return context;
+  //creo un hook personalizado q(useAuth) me va a permitir poder llamar directamente los valores sin llamar al useContext y context
+  //y me da la información del usuario
 };
-
+//authprovider nos permite usar todas las propiedades en cualquier componente.
 const AuthProvider = ({ children }) => {
   const signUp = async (email, password) =>
     createUserWithEmailAndPassword(auth, email, password);
-
+//le paso los parametro según la documentación y esto va a enviar mis datos a fb
   const login = async (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
 
@@ -51,6 +56,9 @@ const AuthProvider = ({ children }) => {
     <authContext.Provider value={{ signUp, login, loginWithGoogle, logOut }}>
       {children}
     </authContext.Provider>
+    //uso authContext para retornar un provider, el que va a servir para
+    //que adentro pongamos componentes como login y demás, y todo lo que tenga este provider
+    //los hijos podrán accederlo, todo componente hijo podrá acceder a este componente padre
   );
 };
 export { AuthProvider, useAuth, authContext };
